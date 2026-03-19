@@ -7,7 +7,7 @@
     <!-- Fuente del diseño de Amor -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -30,7 +30,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; 
             background-color: #00002a; 
             color: #fefae9;
             font-family: "Sour Gummy", system-ui, sans-serif;
@@ -53,8 +52,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 10, 15, 0.6);
-            backdrop-filter: blur(4px);
+            background-color: rgba(10, 10, 15, 0.65);
             z-index: -4; 
             pointer-events: none;
         }
@@ -181,7 +179,6 @@
             border-radius: 20px;
             border: 1px solid rgba(255,214,231,.3);
             box-shadow: 0 8px 32px rgba(255, 43, 79, 0.2);
-            backdrop-filter: blur(10px);
             width: 90%;
             max-width: 380px;
             position: relative;
@@ -257,7 +254,7 @@
         /* === IMAGEN MICHA === */
         .micha-wrapper {
             position: relative;
-            width: 100%;
+            width: 100vw;
             max-width: 900px;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -324,6 +321,18 @@
             position: relative;
             z-index: 100;
             pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .micha-wrapper {
+                width: 100vw;
+                max-width: 100vw;
+                margin-left: -20px;
+                border-radius: 0;
+            }
+            .micha-img {
+                border-radius: 16px;
+            }
         }
 
         @media (max-height: 700px) {
@@ -448,7 +457,7 @@
         </div>
     </div>
 
-    <audio id="audioPlayer" loop>
+    <audio id="audioPlayer" loop preload="none">
         <source src="https://www.dl.dropboxusercontent.com/scl/fi/sficq9d89h06dr4qqxfyz/sound1.mp3?rlkey=hwukbya1m0bxz6d6401ya3etv&st=j8p8sm9d" type="audio/mpeg">
     </audio>
 
@@ -461,7 +470,7 @@
     </div>
     
 
-    <img src="https://media.tenor.com/tPJaogUqo8wAAAAM/happy-birthday.gif" alt="Birthday Celebration" class="birthday-img">
+    <img src="https://media.tenor.com/tPJaogUqo8wAAAAM/happy-birthday.gif" alt="Birthday Celebration" class="birthday-img" loading="lazy">
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -526,7 +535,12 @@
             }
         });
 
+        let lastClickConfetti = 0;
         document.addEventListener('click', (e) => {
+            const now = Date.now();
+            if (now - lastClickConfetti < 400) return;
+            lastClickConfetti = now;
+
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
 
@@ -535,7 +549,7 @@
                 spread: 100,
                 origin: { x: x, y: y },
                 gravity: 1.2,
-                ticks: 200, 
+                ticks: 200,
                 scalar: 0.9
             });
         });
