@@ -72,13 +72,16 @@
         .stars-container::before,
         .stars-container::after {
             content: "";
-            position: absolute; 
-            inset: -50% -50%; 
-            width: 200%;
-            height: 200%;
+            position: absolute;
+            inset: 0;
             background-repeat: repeat;
             pointer-events: none;
             will-change: opacity;
+        }
+
+        .stars-paused::before,
+        .stars-paused::after {
+            animation-play-state: paused;
         }
 
         /* PARTÍCULAS */
@@ -592,6 +595,17 @@
             const secs = Math.floor(seconds % 60);
             return mins + ':' + (secs < 10 ? '0' : '') + secs;
         }
+
+        // === PAUSA ESTRELLAS DURANTE SCROLL ===
+        const starsContainer = document.querySelector('.stars-container');
+        let scrollEndTimer;
+        window.addEventListener('scroll', () => {
+            starsContainer.classList.add('stars-paused');
+            clearTimeout(scrollEndTimer);
+            scrollEndTimer = setTimeout(() => {
+                starsContainer.classList.remove('stars-paused');
+            }, 150);
+        }, { passive: true });
 
         // === INTRO SCREEN ===
         const introScreen = document.getElementById('intro-screen');
