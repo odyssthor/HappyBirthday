@@ -417,6 +417,137 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.3; }
         }
+
+        /* === HISTORIA === */
+        .story-wrapper {
+            width: 100%;
+            max-width: 560px;
+            padding: 0 22px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 60px;
+        }
+
+        .story-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 48px 0 34px;
+            color: rgba(255, 107, 129, 0.5);
+            font-size: 0.75rem;
+        }
+        .story-divider::before,
+        .story-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 129, 0.35), transparent);
+        }
+
+        .story-section {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .story-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-tag {
+            font-size: 0.67rem;
+            letter-spacing: 0.22em;
+            color: #ff6b81;
+            text-transform: uppercase;
+            font-family: "Sour Gummy", sans-serif;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: #fefae9;
+            text-shadow: 0 0 20px rgba(255, 107, 129, 0.2);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .section-photo {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+            margin-bottom: 16px;
+        }
+
+        .section-text {
+            font-size: 0.97rem;
+            color: rgba(254, 250, 233, 0.8);
+            font-family: "Sour Gummy", sans-serif;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .section-text strong {
+            color: #ffd6e7;
+            font-weight: 600;
+        }
+
+        .text-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: #fefae9;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .text-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .text-block {
+            background: rgba(139, 69, 119, 0.13);
+            border: 1px solid rgba(255, 107, 129, 0.18);
+            border-radius: 18px;
+            padding: 20px 18px;
+        }
+
+        .block-heading {
+            font-size: 0.67rem;
+            letter-spacing: 0.2em;
+            color: #ff6b81;
+            text-transform: uppercase;
+            font-family: "Sour Gummy", sans-serif;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .block-text {
+            font-size: 0.97rem;
+            color: rgba(254, 250, 233, 0.8);
+            font-family: "Sour Gummy", sans-serif;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .block-text strong {
+            color: #ffd6e7;
+            font-weight: 600;
+        }
+
+        .closing-section {
+            text-align: center;
+            padding: 40px 10px 10px;
+        }
+
+        .closing-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            color: #ff6b81;
+            text-shadow: 0 0 30px rgba(255, 107, 129, 0.6), 0 0 60px rgba(255, 107, 129, 0.25);
+            line-height: 1.25;
+        }
     </style>
 </head>
 <body>
@@ -473,7 +604,191 @@
     </div>
     
 
-    <img src="https://media.tenor.com/tPJaogUqo8wAAAAM/happy-birthday.gif" alt="Birthday Celebration" class="birthday-img" loading="lazy">
+    <!-- ═══════════════ HISTORIA ═══════════════ -->
+    <div class="story-wrapper">
+
+        <!-- 1 · FOTO: bebe -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Viaje en el tiempo...</p>
+            <h2 class="section-title">El Comienzo de una Historia</h2>
+            <img src="bebe.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">Un 18 de marzo nació una niña a la que pusieron Mariella Esther, hija de don Manuel y doña Doris, en la ciudad de Lima. Desde pequeña siempre fue una persona dedicada, con una infancia llena de recuerdos gratos.</p>
+        </div>
+
+        <!-- 2 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Primeros Recuerdos:<br>Familia y Amor</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">La Infancia</p>
+                    <p class="block-text">Desde los primeros pasos hasta las risas en casa, la infancia estuvo llena de momentos que construyeron nuestro <strong>vínculo familiar</strong>.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">El Cariño Familiar</p>
+                    <p class="block-text">Los abrazos reconfortantes y las historias contadas a la hora de dormir fortalecieron nuestro amor, creando recuerdos imborrables que aún <strong>nos acompañan</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 · FOTO: niña -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Los años de aprendizaje</p>
+            <h2 class="section-title">Retratos Escolares:<br>Recuerdos de Aprendizaje</h2>
+            <img src="niña.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">Los retratos escolares capturan <strong>momentos preciosos</strong> y la evolución de mamá a través de diferentes etapas de su vida, llenos de amor y amistad.</p>
+        </div>
+
+        <!-- 4 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Juventud y Sueños</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">Los Años Dorados</p>
+                    <p class="block-text">En esta etapa, cada momento estuvo lleno de <strong>aventuras emocionantes</strong> y descubrimientos, donde la libertad era el mayor regalo.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">Amistades Inolvidables</p>
+                    <p class="block-text">Las conexiones formadas durante estos años <strong>perduran hasta hoy</strong>, llenando nuestra vida de risas y momentos compartidos que siempre atesoraremos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 · FOTO: joven -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Descubriendo el mundo</p>
+            <h2 class="section-title">Viajes Inolvidables:<br>Momentos que Forman Recuerdos</h2>
+            <img src="joven.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">Los viajes de mamá han sido <strong>fuentes invaluables</strong> de aventuras, enseñanzas y recuerdos, conectando culturas y dejando huellas en su corazón.</p>
+        </div>
+
+        <!-- 6 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Logros Personales:<br>Superando Desafíos</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">Metas Alcanzadas</p>
+                    <p class="block-text">A lo largo de los años, mamá ha logrado <strong>superar obstáculos</strong> y alcanzar sus metas, siempre inspirándonos a todos con su determinación.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">Resiliencia y Fortaleza</p>
+                    <p class="block-text">Su capacidad para <strong>resistir adversidades</strong> y mantenerse firme es un ejemplo poderoso de resiliencia, mostrándonos el valor de nunca rendirse.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7 · FOTO: matrimonio -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Matrimonio y Familia</p>
+            <h2 class="section-title">El Amor de Tu Vida:<br>Matrimonio e Hijos</h2>
+            <img src="matrimonio.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">Celebramos el hermoso viaje de amor y compromiso que <strong>comenzó con tu matrimonio</strong>, creando una familia llena de alegría y recuerdos.</p>
+        </div>
+
+        <!-- 8 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">La Familia:<br>El Centro de Todo</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">La Maternidad</p>
+                    <p class="block-text">La maternidad ha sido un viaje de amor <strong>incondicional</strong>, donde cada abrazo, sonrisa y cuidado ha creado recuerdos imborrables en nuestras vidas.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">El Amor Incondicional</p>
+                    <p class="block-text">El amor de mamá es una luz que nos <strong>guía</strong>, siempre presente en los momentos de alegría y en los de dificultad, fortaleciendo nuestra unión.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9 · FOTO: familia -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">La Magia de la Familia</p>
+            <h2 class="section-title">Momentos Especiales:<br>Celebraciones y Alegrías</h2>
+            <img src="familia.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">En cada cumpleaños, celebramos <strong>la unión familiar</strong>, compartiendo risas y amor, creando recuerdos que perduran en nuestros corazones para siempre.</p>
+        </div>
+
+        <!-- 10 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Madurez y Sabiduría:<br>Un Legado</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">La Experiencia Vivida</p>
+                    <p class="block-text">A lo largo de los años, mamá ha acumulado <strong>experiencias valiosas</strong> que han forjado su carácter y moldeado su vida.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">Sabiduría Adquirida</p>
+                    <p class="block-text">Su capacidad para enfrentar desafíos y <strong>compartir lecciones</strong> aprendidas ha inspirado a todos a su alrededor, creando un impacto duradero.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11 · FOTO: jardineria -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Jardinería y Naturaleza</p>
+            <h2 class="section-title">Pasiones y Hobbies:<br>La Alegría de Cultivar</h2>
+            <img src="jardineria.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">A través de su amor por la jardinería, ha cultivado flores y recuerdos, creando un <strong>hogar lleno de vida</strong> y belleza.</p>
+        </div>
+
+        <!-- 12 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Inspiración<br>para Todos</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">La Generosidad</p>
+                    <p class="block-text">Su generosidad ha impactado nuestras vidas, siempre dispuesta a ayudar y compartir, creando un ambiente cálido y lleno de amor.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">El Legado</p>
+                    <p class="block-text">Su legado es un ejemplo de amor y fortaleza, dejando huellas imborrables en nuestros corazones y enseñándonos valores para la vida.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13 · FOTO: brindis -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <p class="section-tag">Un Brindis por Ti</p>
+            <h2 class="section-title">Celebrando 58 Años<br>de Luz y Amor</h2>
+            <img src="brindis.webp" class="section-photo" alt="" loading="lazy">
+            <p class="section-text">En este momento especial, <strong>levantamos nuestras copas</strong> para celebrar tu vida llena de amor, risas y recuerdos inolvidables. ¡Salud, mamá!</p>
+        </div>
+
+        <!-- 14 · TEXTO -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section">
+            <h2 class="text-section-title">Agradecimiento<br>y Amor Eterno</h2>
+            <div class="text-blocks">
+                <div class="text-block">
+                    <p class="block-heading">El Cariño Profundo</p>
+                    <p class="block-text">En cada recuerdo compartido, <strong>tu amor incondicional</strong> nos ha enseñado la importancia de la familia y la cercanía en nuestras vidas.</p>
+                </div>
+                <div class="text-block">
+                    <p class="block-heading">Un Futuro Brillante</p>
+                    <p class="block-text">Miramos hacia adelante con esperanza, <strong>sabiendo que tu luz</strong> continuará guiándonos en cada paso de nuestro camino juntos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15 · CIERRE -->
+        <div class="story-divider"><span>✦</span></div>
+        <div class="story-section closing-section">
+            <h2 class="closing-title">¡Feliz Cumpleaños,<br>Mamá!</h2>
+        </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -606,6 +921,18 @@
                 starsContainer.classList.remove('stars-paused');
             }, 150);
         }, { passive: true });
+
+        // === STORY FADE-IN ===
+        const storySections = document.querySelectorAll('.story-section');
+        const storyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    storyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        storySections.forEach(s => storyObserver.observe(s));
 
         // === INTRO SCREEN ===
         const introScreen = document.getElementById('intro-screen');
