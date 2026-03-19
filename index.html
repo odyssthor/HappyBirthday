@@ -7,7 +7,7 @@
     <!-- Fuente del diseño de Amor -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -382,10 +382,95 @@
                 margin-bottom: -60px;
             }
         }
+
+        /* === PANTALLA DE INTRODUCCIÓN === */
+        #intro-screen {
+            position: fixed;
+            inset: 0;
+            background: #faf8f4;
+            z-index: 9999;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: opacity 0.9s ease;
+        }
+
+        #intro-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-content {
+            padding: 52px 36px 0;
+            flex: 1;
+        }
+
+        .intro-name {
+            font-size: 3.6rem;
+            color: #1e1e1e;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 6px;
+        }
+
+        .intro-subtitle {
+            font-size: 0.72rem;
+            color: #8a7a5a;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-family: "Sour Gummy", sans-serif;
+            margin-bottom: 32px;
+        }
+
+        .intro-text {
+            font-size: 2.4rem;
+            color: #1e1e1e;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .intro-flower {
+            position: absolute;
+            bottom: -30px;
+            left: -20px;
+            width: 68%;
+            max-width: 320px;
+            pointer-events: none;
+        }
+
+        .intro-hint {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            font-size: 0.82rem;
+            color: #b0a090;
+            font-family: "Sour Gummy", sans-serif;
+            animation: pulseHint 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseHint {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
     </style>
 </head>
 <body>
-    
+
+    <!-- PANTALLA DE INTRODUCCIÓN -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <h1 class="intro-name">Mariella</h1>
+            <p class="intro-subtitle">Para nuestra querida mamá</p>
+            <p class="intro-text">Esta es la historia<br>de alguien muy<br>especial...</p>
+        </div>
+        <img src="flor.png" class="intro-flower" alt="">
+        <p class="intro-hint">Toca para continuar ✦</p>
+    </div>
+
     <div class="background-overlay"></div>
     <div class="stars-container"></div>
 
@@ -701,6 +786,22 @@
             const secs = Math.floor(seconds % 60);
             return mins + ':' + (secs < 10 ? '0' : '') + secs;
         }
+
+        // === INTRO SCREEN ===
+        const introScreen = document.getElementById('intro-screen');
+
+        introScreen.addEventListener('click', () => {
+            introScreen.classList.add('fade-out');
+            // Autoplay audio
+            audio.play().catch(() => {});
+            showPauseIcon();
+            isPlaying = true;
+            launchConfettiShower();
+            // Remove from DOM after fade
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+            }, 900);
+        });
     </script>
 </body>
 </html>
